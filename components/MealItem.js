@@ -1,9 +1,17 @@
 import {View, Text, Pressable, Image, StyleSheet, Platform} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import {MealDetails} from "./MealDetails";
 
 export const MealItem = ({item}) => {
+  const navigation = useNavigation();
+  const onPress = () => {
+    navigation.navigate('MealDetailScreen', { mealId: item.id, mealTitle: item.title });
+  }
+  
   return (
     <View style={styles.mealItem}>
       <Pressable
+          onPress={onPress}
           android_ripple={{color: '#ccc'}}
           style={({pressed}) => [styles.mealItemInner, pressed && styles.buttonPressed]}
       >
@@ -12,11 +20,7 @@ export const MealItem = ({item}) => {
         <View style={styles.copy}>
           <Text style={styles.title}>{item.title}</Text>
   
-          <View style={styles.details}>
-            <Text style={styles.detailsText}>{item.duration}m</Text>
-            <Text style={styles.detailsText}>{item.complexity.toUpperCase()}</Text>
-            <Text style={styles.detailsText}>{item.affordability.toUpperCase()}</Text>
-          </View>
+          <MealDetails duration={item.duration} complexity={item.complexity} affordability={item.affordability}/>
         </View>
       </Pressable>
     </View>

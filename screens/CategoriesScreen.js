@@ -9,7 +9,7 @@ function renderItem(itemData, onPress) {
 }
 
 export const CategoriesScreen = ({navigation}) => {
-  const onPressHandler = (item) => navigation.navigate('MealsOverviewScreen', {categoryId: item.id, title: item.title});
+  const onPressHandler = (item) => navigation.navigate('MealsOverviewScreen', {categoryId: item.id, categoryTitle: item.title});
   
   return (
     <FlatList
