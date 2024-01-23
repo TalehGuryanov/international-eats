@@ -1,17 +1,30 @@
-import {View, Text, Image, ScrollView, StyleSheet} from "react-native";
+import {View, Text, Image, ScrollView, StyleSheet, Button} from "react-native";
 
 import {MEALS} from "../data/dummy-data";
-import {useMemo} from "react";
+import {useMemo, useLayoutEffect} from "react";
 import {MealDetails} from "../components/MealDetails";
 import {Subtitle} from "../components/Subtitle";
 import {List} from "../components/List";
+import {IconButton} from "../components/IconButton";
 
-export const MealDetailScreen = ({route}) => {
+export const MealDetailScreen = ({route, navigation}) => {
   const {mealId} = route.params;
   
   const selectedMeal = useMemo(
       () => MEALS.find(meal => meal.id=== mealId),
       [mealId]);
+  
+  const toggleFavorite = () => {
+    console.log(1234)
+  }
+  
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+          <IconButton icon={"star"} color={"#fff"} onPress={toggleFavorite} />
+      ),
+  })
+  }, [navigation, toggleFavorite]);
   
   return (
       <ScrollView>
