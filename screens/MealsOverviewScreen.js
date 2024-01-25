@@ -1,5 +1,5 @@
 import {MEALS} from "../data/dummy-data";
-import {View, Text, StyleSheet, FlatList} from "react-native";
+import {View, StyleSheet, FlatList} from "react-native";
 import {useMemo} from "react";
 import {MealItem} from "../components/MealItem";
 

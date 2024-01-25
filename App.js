@@ -1,4 +1,4 @@
-import {Button, StatusBar, StyleSheet} from 'react-native';
+import {StatusBar} from 'react-native';
 import {CategoriesScreen} from "./screens/CategoriesScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -16,12 +16,13 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
   return (
       <Drawer.Navigator screenOptions={{
-        headerStyle: { backgroundColor: '#351401' },
+        headerStyle: { backgroundColor: '#000' },
         headerTintColor: '#fff',
-        sceneContainerStyle: { backgroundColor: '#3f3f25' },
-        drawerContentStyle: { backgroundColor: '#eee9e9'},
-        drawerInactiveTintColor: '#424040',
-        drawerActiveTintColor: '#000000'
+        sceneContainerStyle: { backgroundColor: '#ccc' },
+        drawerContentStyle: { backgroundColor: '#fff'},
+        drawerActiveBackgroundColor: '#000',
+        drawerActiveTintColor: '#fff',
+        drawerInactiveTintColor: '#000',
       }}>
         <Drawer.Screen
             name="Categories"
@@ -50,9 +51,9 @@ export default function App() {
           <Stack.Navigator
               initialRouteName="Drawer"
               screenOptions={{
-                headerStyle: { backgroundColor: '#351401' },
+                headerStyle: { backgroundColor: '#000' },
                 headerTintColor: '#fff',
-                contentStyle: { backgroundColor: '#3f3f25' },
+                contentStyle: { backgroundColor: '#ccc' },
               }}
           >
             <Stack.Screen
@@ -81,9 +82,3 @@ export default function App() {
       </>
 );
 }
-
-const styles = StyleSheet.create({
-  container: {
-
-  },
-});

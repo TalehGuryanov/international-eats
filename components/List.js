@@ -2,8 +2,8 @@ import {Text, View, StyleSheet} from "react-native";
 
 export const List = ({data, style}) => {
   return (
-      data.map((item) => <View style={[styles.item,style]}>
-          <Text style={styles.text} key={item}>{item}</Text>
+      data.map((item, index) => <View style={[styles.item,style]}>
+          <Text style={styles.text} key={index}>{item}</Text>
         </View>)
   )
 }
@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     marginVertical: 4,
     marginHorizontal: 12,
-    backgroundColor: '#e2b497',
+    backgroundColor: '#f6b3b3',
   },
   text: {
-    color: '#351401',
+    color: '#000',
     textAlign: 'center',
   }
 })

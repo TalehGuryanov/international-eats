@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
   detailsText: {
     marginHorizontal: 4,
     fontSize: 12,
+    color: '#000'
   }
 });

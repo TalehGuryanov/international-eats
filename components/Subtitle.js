@@ -8,7 +8,7 @@ export const Subtitle = ({children, style}) => {
 
 const styles = StyleSheet.create({
   subtitle: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     textAlign: 'center',
     fontWeight: 'bold',

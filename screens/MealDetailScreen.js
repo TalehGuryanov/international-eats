@@ -1,4 +1,4 @@
-import {View, Text, Image, ScrollView, StyleSheet, Button} from "react-native";
+import {View, Text, Image, ScrollView, StyleSheet} from "react-native";
 
 import {MEALS} from "../data/dummy-data";
 import {useMemo, useLayoutEffect} from "react";
@@ -35,7 +35,6 @@ export const MealDetailScreen = ({route, navigation}) => {
               duration={selectedMeal.duration}
               complexity={selectedMeal.complexity}
               affordability={selectedMeal.affordability}
-              textStyle={styles.details}
               style={styles.detailsWrapper}
           />
           <View style={styles.listWr}>
@@ -62,13 +61,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     margin: 8,
-    color: '#fff',
+    color: '#000',
   },
   detailsWrapper: {
     marginBottom: 12,
-  },
-  details: {
-    color: '#fff',
   },
   listWr: {
     width: '100%',
