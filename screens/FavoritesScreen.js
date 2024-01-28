@@ -1,17 +1,16 @@
 import {FlatList, StyleSheet, View, Text} from 'react-native';
-import {FavoritesContext} from "../store/context/favorites-context";
-import {useContext, useMemo} from "react";
+import {useMemo} from "react";
 import {MealItem} from "../components/MealItem";
 
 import {MEALS} from "../data/dummy-data";
+import {useSelector} from "react-redux";
 
 export const FavoritesScreen = () => {
-  const favoritesContext = useContext(FavoritesContext);
-  const {favoriteMealsIds} = favoritesContext
+  const favorites = useSelector(state => state.favorites) || [];
   
   const selectedMeals = useMemo(
-      () => MEALS.filter(meal => favoriteMealsIds.indexOf(meal.id) >= 0),
-      [favoriteMealsIds]);
+      () => MEALS.filter(meal => favorites.indexOf(meal.id) >= 0),
+      [favorites]);
   
   return (
       <View style={styles.container}>
